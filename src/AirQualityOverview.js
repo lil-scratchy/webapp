@@ -8,16 +8,16 @@ class OverviewItem extends React.Component {
 
     switch (this.props.grade) {
       case 1:
-        grade = <i class="icofont-thumbs-down grade-bad"></i>;
+        grade = <i className="icofont-thumbs-down grade-bad"></i>;
         break;
       case 2:
-        grade = <i class="icofont-thumbs-up grade-ok"></i>;
+        grade = <i className="icofont-thumbs-up grade-ok"></i>;
         break;
       case 3:
-        grade = <i class="icofont-thumbs-up grade-good"></i>;
+        grade = <i className="icofont-thumbs-up grade-good"></i>;
         break;
       default:
-        grade = <i class="icofont-thumbs-up grade-good"></i>;
+        grade = <i className="icofont-thumbs-up grade-good"></i>;
     }
 
     return (

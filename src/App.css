@@ -29,16 +29,16 @@ header .view-selector-selection {
   cursor: pointer;
 }
 
-header .view-selector .view-selector-list{
-  display: block;
-  padding: 0px;
-}
-
 header .view-selector li{
   width: fit-content;
-  padding: 10px;
+  margin: 15px;
   display: block;
   cursor: pointer;
+}
+
+header .view-selector li a{
+  text-decoration: none;
+  color: black;
 }
 
 .view-title{

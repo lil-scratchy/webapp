@@ -15,10 +15,10 @@ class EnvironmentOverview extends React.Component {
     render() {
         return (
             <div className="environment-overview container-flex">
-                <EnvironmentItem label={<i class="icofont-sunny-day-temp"> Temperature</i>} value="40°C" />
-                <EnvironmentItem label={<i class="icofont-water-drop"> Humidity</i>} value="30 %" />
-                <EnvironmentItem label={<i class="icofont-arrow-down"> Pressure</i>} value="200 bar" />
-                <EnvironmentItem label={<i class="icofont-light-bulb"> Light</i>} value="Day" />
+                <EnvironmentItem label={<i className="icofont-sunny-day-temp"> Temperature</i>} value="40°C" />
+                <EnvironmentItem label={<i className="icofont-water-drop"> Humidity</i>} value="30 %" />
+                <EnvironmentItem label={<i className="icofont-arrow-down"> Pressure</i>} value="200 bar" />
+                <EnvironmentItem label={<i className="icofont-light-bulb"> Light</i>} value="Day" />
             </div>
         );
     }
