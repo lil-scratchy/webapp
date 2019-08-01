@@ -1,0 +1,60 @@
+.item {
+    display: block;
+}
+
+.device-item {
+    display: block;
+    padding: 10px;
+}
+
+.label {
+    color: black;
+    padding: 10px;
+}
+
+.grade {
+    color: black;
+    padding: 10px;
+}
+
+.grade-bad {
+    color: var(--main-accent-two);
+}
+
+.grade-ok {
+    color: var(--main-accent-four);
+}
+
+.grade-good {
+    color: var(--main-accent-three);
+}
+
+.overview-item {
+    padding: 15px;
+    font-size: 16pt;
+    display: flex;
+    flex-flow: row;
+    width: 400px;
+}
+
+.overview-item > * {
+    padding: 10px;
+    display: block;
+    flex-wrap: nowrap;
+}
+
+.overview-item .span {
+    flex-wrap: nowrap;
+}
+
+.overview-item-label{
+    width: 60%;
+}
+
+.overview-item-value{
+    width: 30%;
+}
+
+.overview-item-grade{
+    width: 10%;
+}

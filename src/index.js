@@ -1,10 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import './index.css';
 import App from './App';
+import DeviceView from './DeviceView';
+import SettingsView from './SettingsView';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const routing = (
+    <Router>
+        <div>
+            <Route exact path="/" component={App} />
+            <Route path="/device/:id" component={DeviceView} />
+            <Route path="/settings" component={SettingsView} />
+        </div>
+    </Router>
+)
+
+ReactDOM.render(routing, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

@@ -1,0 +1,26 @@
+.environment-overview{
+    border-left: 1px solid #ccc;
+    padding-left: 15px;
+}
+
+.environment-item {
+    padding: 15px;
+    font-size: 16pt;
+    display: flex;
+    flex-flow: row;
+    width: 300px;
+}
+
+.environment-item > * {
+    padding: 10px;
+    display: block;
+    flex-wrap: nowrap;
+}
+
+.environment-item-label{
+    width: 60%;
+}
+
+.environment-item-value{
+    width: 40%;
+}
