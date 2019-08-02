@@ -31,7 +31,7 @@ class App extends React.Component {
         this.setState({devices: data.map((elem) => ({id: elem.id, label: elem.name}))});
       });
 
-    update.devices = [{ id: 0, label: 'Device 1' }, { id: 1, label: 'Device 2' }, { id: 2, label: 'Device 3' }];
+    // update.devices = [{ id: 0, label: 'Device 1' }, { id: 1, label: 'Device 2' }, { id: 2, label: 'Device 3' }];
     this.setState(update);
   }
 
@@ -70,7 +70,7 @@ class App extends React.Component {
           </div>
 
           <footer>
-            Footer
+            {/* Footer */}
         </footer>
         </div>
       </Router>
