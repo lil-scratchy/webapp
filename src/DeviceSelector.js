@@ -10,6 +10,7 @@ class DeviceSelector extends React.Component {
         this.state = { opened: false };
         this.toggleHandler = this.toggleHandler.bind(this);
         this.onSelectionHandler = this.onSelectionHandler.bind(this);
+        this.onAddNewDevice = this.onAddNewDevice.bind(this);
     }
 
     toggleHandler() {
@@ -19,7 +20,13 @@ class DeviceSelector extends React.Component {
     onSelectionHandler(device) {
         this.props.history.push('/device/' + device.id);
         this.props.onSelected(device);
-        this.setState({ opened: !this.state.opened });
+        this.toggleHandler();
+    }
+
+    onAddNewDevice(){
+        //this.props.history.push('/device/add');
+        alert('Feature will be added soon!');
+        this.toggleHandler();
     }
 
     render() {
@@ -37,6 +44,7 @@ class DeviceSelector extends React.Component {
                     <div className="device-selector-list">
                         <ul className="view-selector">
                             {selectionList}
+                            <li onClick={this.onAddNewDevice}>Add Device</li>
                         </ul>
                     </div>
                 }

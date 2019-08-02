@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 import MainView from './MainView';
 import DeviceView from './DeviceView';
 import SettingsView from './SettingsView';
 import BackButton from './BackButton';
 import DeviceSelector from './DeviceSelector';
+import LegendView from './LegendView';
 
 class App extends React.Component {
 
@@ -40,14 +41,22 @@ class App extends React.Component {
           <header className="app-header">
             <BackButton onBack={this.onBackHandler} />
             <img src={process.env.PUBLIC_URL + '/logo.png'} width="80px" height="80px" alt="logo"></img>
-            <DeviceSelector selectedDevice={this.state.selectedDevice} onSelected={this.onSelectedHandler} devices={this.state.devices} />
+            <div className="app-menu">
+              <DeviceSelector selectedDevice={this.state.selectedDevice} onSelected={this.onSelectedHandler} devices={this.state.devices} />
+              <div className="legend-link-container">
+                <span className="legend-link">
+                  <Link to="/legend"><i className="icofont-question-circle"/></Link>
+                </span>
+              </div>
+            </div>
           </header>
 
 
           <div>
             <Route exact path="/" component={MainView} />
-            <Route path="/device/:id" component={DeviceView} devices={this.state.devices}/>
+            <Route path="/device/:id" component={DeviceView} />
             <Route path="/settings" component={SettingsView} />
+            <Route path="/legend" component={LegendView} />
           </div>
 
           <footer>
