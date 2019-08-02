@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 
 import './BackButton.css';
 
@@ -19,10 +19,9 @@ class BackButton extends React.Component {
     render() {
         return (
             <div className="back-button-container">
-                {
-                    !(this.props.history.location.pathname === '/') &&
-                    <span className="back-button icofont-arrow-left" onClick={this.onClickHandler}>Back</span>
-                }
+                <span className="back-link">
+                    <Link to="/"><i className="icofont-home" /></Link>
+                </span>
             </div>
         );
     }

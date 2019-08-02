@@ -39,13 +39,13 @@ class App extends React.Component {
       <Router>
         <div className="app">
           <header className="app-header">
-            <BackButton onBack={this.onBackHandler} />
             <img src={process.env.PUBLIC_URL + '/logo.png'} width="80px" height="80px" alt="logo"></img>
             <div className="app-menu">
+              <BackButton onBack={this.onBackHandler} />
               <DeviceSelector selectedDevice={this.state.selectedDevice} onSelected={this.onSelectedHandler} devices={this.state.devices} />
               <div className="legend-link-container">
                 <span className="legend-link">
-                  <Link to="/legend"><i className="icofont-question-circle"/></Link>
+                  <Link to="/legend"><i className="icofont-question-circle" /></Link>
                 </span>
               </div>
             </div>
