@@ -20,7 +20,7 @@ class EnvironmentOverview extends React.Component {
                 <EnvironmentItem label={<i class="icofont-sunny-day-temp"> Temperature</i>} value={`${temp}°C`} />
                 <EnvironmentItem label={<i class="icofont-water-drop"> Humidity</i>} value={`${humi} %`} />
                 <EnvironmentItem label={<i class="icofont-arrow-down"> Pressure</i>} value={`${pres} hPa`} />
-                <EnvironmentItem label={<i class="icofont-light-bulb"> Light</i>} value={`${light} mLux`} />
+                <EnvironmentItem label={<i class="icofont-light-bulb"> Light</i>} value={`${light} Lux`} />
             </div>
         );
     }

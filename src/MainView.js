@@ -17,8 +17,8 @@ class MainView extends React.Component {
                     <h1>Overview</h1>
                 </div>
                 <div className="app-content">
-                    <AirQualityOverview></AirQualityOverview>
-                    <EnvironmentOverview></EnvironmentOverview>
+                    {/* <AirQualityOverview></AirQualityOverview>
+                    <EnvironmentOverview></EnvironmentOverview> */}
                 </div>
             </div>
         );
