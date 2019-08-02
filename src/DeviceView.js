@@ -8,14 +8,19 @@ class DeviceView extends React.Component {
 
   render() {
     let deviceId = this.props.match.params.id;
+    
     return (
       <div className="app-view">
         <div className="view-title">
-          <h1>Device {deviceId}</h1>
+          <h1>Device with ID {deviceId}</h1>
         </div>
         <div className="app-content">
           <AirQualityOverview></AirQualityOverview>
           <EnvironmentOverview></EnvironmentOverview>
+          <div>
+            <img src={process.env.PUBLIC_URL + '/Skala_oxy.jpg'} alt="Graph1" />
+            <img src={process.env.PUBLIC_URL + '/Temperatur.jpg'} alt="Graph2" />
+          </div>
         </div>
       </div>
     );

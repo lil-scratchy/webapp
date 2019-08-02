@@ -1,0 +1,41 @@
+.device-selector {
+    background-color: var(--main-accent-four);
+    border-radius: 5px;
+    height: fit-content;
+    display: block;
+    padding: 15px;
+    justify-content: center;
+    width: 120px;
+    margin: 15px;
+}
+
+.device-selector-selection {
+    cursor: pointer;
+}
+
+.device-selector-list {
+    position: absolute;
+    background-color: var(--main-accent-four);
+    height: fit-content;
+    width: 120px;
+    padding: 15px;
+    margin-left: -15px; 
+}
+
+.device-selector-list ul{
+    display: block;
+    padding: 0px;
+    margin: 0px;
+}
+
+.device-selector-list li {
+    width: fit-content;
+    margin: 15px;
+    display: block;
+    cursor: pointer;
+}
+
+.device-selector-list li a {
+    text-decoration: none;
+    color: black;
+}

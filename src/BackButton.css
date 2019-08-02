@@ -1,0 +1,15 @@
+.back-button {
+    background-color: var(--main-accent-one);
+    border-radius: 5px;
+    height: fit-content;
+    display: block;
+    padding: 15px;
+    justify-content: center;
+    width: 120px;
+    cursor: pointer;
+}
+
+.back-button-container{
+    width: 120px;
+    padding: 15px;
+}

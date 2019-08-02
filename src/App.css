@@ -14,31 +14,8 @@ header {
   padding: 1vw;
   display: flex;
   flex-flow: row;
+  flex-basis: 1 2 1;
   justify-content: space-between;
-}
-
-header .view-selector {
-  background-color: var(--main-accent-four);
-  border-radius: 5px;
-  height: fit-content;
-  padding: 20px;
-  justify-content: center;
-}
-
-header .view-selector-selection {
-  cursor: pointer;
-}
-
-header .view-selector li{
-  width: fit-content;
-  margin: 15px;
-  display: block;
-  cursor: pointer;
-}
-
-header .view-selector li a{
-  text-decoration: none;
-  color: black;
 }
 
 .view-title{

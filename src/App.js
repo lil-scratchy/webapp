@@ -1,48 +1,59 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import MainView from './MainView';
 import DeviceView from './DeviceView';
 import SettingsView from './SettingsView';
+import BackButton from './BackButton';
+import DeviceSelector from './DeviceSelector';
 
 class App extends React.Component {
 
-  onSelectedHandler(selection) {
-    if (selection.id === 0) {
-      window.location = '/';
-    } else {
-      window.location = '/device/' + selection.id;
-    }
+  constructor(props) {
+    super(props);
+    this.state = { selectedDevice: null, devices: [] };
+    this.onSelectedHandler = this.onSelectedHandler.bind(this);
+    this.onBackHandler = this.onBackHandler.bind(this);
+    this.loadDevices();
+  }
+
+  loadDevices() {
+    const update = this.state;
+    update.devices = [{ id: 0, label: 'Device 1' }, { id: 1, label: 'Device 2' }, { id: 2, label: 'Device 3' }];
+    this.setState(update);
+  }
+
+  onSelectedHandler(device) {
+    this.setState({ selectedDevice: device });
+  }
+
+  onBackHandler() {
+    this.setState({ selectedDevice: null });
   }
 
   render() {
 
     return (
       <Router>
-      <div className="app">
-        <header className="app-header">
-          <img src={process.env.PUBLIC_URL + '/logo.png'} width="80px" height="80px" alt="logo"></img>
-          <ul className="view-selector">
-            <li><Link to="/">Overview</Link></li>
-            <li><Link to="/device/1">Device 1</Link></li>
-            <li><Link to="/device/2">Device 2</Link></li>
-            <li><Link to="/device/3">Device 3</Link></li>
-            <li><Link to="/device/4">Device 4</Link></li>
-          </ul>
-        </header>
+        <div className="app">
+          <header className="app-header">
+            <BackButton onBack={this.onBackHandler} />
+            <img src={process.env.PUBLIC_URL + '/logo.png'} width="80px" height="80px" alt="logo"></img>
+            <DeviceSelector selectedDevice={this.state.selectedDevice} onSelected={this.onSelectedHandler} devices={this.state.devices} />
+          </header>
 
-        
+
           <div>
             <Route exact path="/" component={MainView} />
-            <Route path="/device/:id" component={DeviceView} />
+            <Route path="/device/:id" component={DeviceView} devices={this.state.devices}/>
             <Route path="/settings" component={SettingsView} />
           </div>
 
-        <footer>
-          Footer
+          <footer>
+            Footer
         </footer>
-      </div>
+        </div>
       </Router>
     );
   }
