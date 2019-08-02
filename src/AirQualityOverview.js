@@ -40,13 +40,14 @@ class AirQualityOverview extends React.Component {
     const deviceList = devices.map((value, index, array) => {
       return (<li className="device-item"><span className="label">Device {value}</span><span className="grade"><i class="icofont-simple-smile"></i></span></li>);
     });*/
-
+    let { partical, co2, ozon, o2 } = this.props.aq;
+    // TODO fix the grading
     return (
       <div className="container-flex">
-        <OverviewItem label="Particulate Matter" value="1" grade={1} />
-        <OverviewItem label="Carbon Dioxide" value="2" grade={2} />
-        <OverviewItem label="Ozon" value="3" grade={3} />
-        <OverviewItem label="Oxygen" value="1" grade={1} />
+        <OverviewItem label="Particulate Matter" value={partical} grade={1} />
+        <OverviewItem label="Carbon Dioxide" value={co2} grade={2} />
+        <OverviewItem label="Ozon" value={ozon} grade={3} />
+        <OverviewItem label="Oxygen" value={o2} grade={1} />
       </div>
     );
   }

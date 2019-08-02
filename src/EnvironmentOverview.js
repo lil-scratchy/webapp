@@ -13,12 +13,14 @@ function EnvironmentItem(props) {
 class EnvironmentOverview extends React.Component {
 
     render() {
+        console.log(this.props);
+        let {temp, humi, pres, light} = this.props.env;
         return (
             <div className="environment-overview container-flex">
-                <EnvironmentItem label={<i className="icofont-sunny-day-temp"> Temperature</i>} value="40°C" />
-                <EnvironmentItem label={<i className="icofont-water-drop"> Humidity</i>} value="30 %" />
-                <EnvironmentItem label={<i className="icofont-arrow-down"> Pressure</i>} value="200 bar" />
-                <EnvironmentItem label={<i className="icofont-light-bulb"> Light</i>} value="Day" />
+                <EnvironmentItem label={<i class="icofont-sunny-day-temp"> Temperature</i>} value={`${temp}°C`} />
+                <EnvironmentItem label={<i class="icofont-water-drop"> Humidity</i>} value={`${humi} %`} />
+                <EnvironmentItem label={<i class="icofont-arrow-down"> Pressure</i>} value={`${pres} hPa`} />
+                <EnvironmentItem label={<i class="icofont-light-bulb"> Light</i>} value={`${light} mLux`} />
             </div>
         );
     }
