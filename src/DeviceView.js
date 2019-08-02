@@ -31,10 +31,7 @@ class DeviceView extends React.Component {
     }
   }
 
-  constructor(props){
-    super(props);
-    setInterval(() => {
-      console.log("Loading Data for " + this.props.match.params.id);
+  loadData() {
       axios.get(`${endpoint}/devices/${this.props.match.params.id}/data/latest`)
         .then(({data}) => {
           let newState = this.state;
@@ -72,11 +69,28 @@ class DeviceView extends React.Component {
           this.setState({newState});
           console.log(data);
         })
+
+  }
+
+  constructor(props){
+    super(props);
+    setInterval(() => {
+      this.loadData();
     }, 1000);
+    this.props.history.listen((location) => {
+      let id = location.pathname.split('/')[2];
+      axios.get(`${endpoint}/devices/${id}/`)
+        .then(({data: {name}}) => {
+          this.setState({name});
+        })
+        this.loadData();
+    });
     axios.get(`${endpoint}/devices/${props.match.params.id}/`)
       .then(({data: {name}}) => {
         this.setState({name});
       })
+    this.loadData();
+
   }
 
   render() {
