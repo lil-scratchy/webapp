@@ -10,8 +10,8 @@ const endpoint = "http://35.157.193.102:8080";
 
 const Station = ({id, name, temp, status, history}) => <div 
     style={{
-        height: 300,
-        width: 300,
+        height: 400,
+        width: 400,
         textAlign: "center",
 }}
     onClick={()=>{
@@ -93,11 +93,13 @@ class MainView extends React.Component {
                                 this.setState({
                                     stations: this.state.stations.map((e) => {
                                         console.log(elem, e);
-                                        return e.id == station.id ? {...e, temp: (elem.value / 1000).toString().substr(0,4)} : e;
+                                        return e.id == station.id ? {...e, temp: ((elem.value / 1000) - 6).toString().substr(0,4)} : e;
                                     })
                                 });
                                 console.log(elem.value)
                                 break;
+                            default:
+
                         }
                     });
         })
