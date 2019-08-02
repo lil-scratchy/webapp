@@ -16,6 +16,7 @@ var groupBy = function(xs, key) {
 
 class DeviceView extends React.Component {
   state = {
+    name: loading_text,
     AirQuality: {
       partical_count: loading_text,
       tvoc: loading_text,
@@ -72,15 +73,19 @@ class DeviceView extends React.Component {
           console.log(data);
         })
     }, 1000);
+    axios.get(`${endpoint}/devices/${props.match.params.id}/`)
+      .then(({data: {name}}) => {
+        this.setState({name});
+      })
   }
 
   render() {
-    let deviceId = this.props.match.params.id;
+    let deviceName = this.state.name;
     
     return (
       <div className="app-view">
         <div className="view-title">
-          <h1>Device with ID {deviceId}</h1>
+          <h1>{deviceName}</h1>
         </div>
         <div className="app-content">
           <AirQualityOverview aq={this.state.AirQuality}></AirQualityOverview>

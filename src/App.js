@@ -8,6 +8,10 @@ import SettingsView from './SettingsView';
 import BackButton from './BackButton';
 import DeviceSelector from './DeviceSelector';
 import LegendView from './LegendView';
+import axios from 'axios';
+
+const loading_text = "...";
+const endpoint = "http://35.157.193.102:8080";
 
 class App extends React.Component {
 
@@ -21,7 +25,13 @@ class App extends React.Component {
 
   loadDevices() {
     const update = this.state;
-    update.devices = [{ id: 0, label: 'Device 1' }, { id: 1, label: 'Device 2' }, { id: 2, label: 'Device 3' }];
+    axios.get(`${endpoint}/devices/`)
+      .then(({data}) => {
+        console.log(data);
+        this.setState({devices: data.map((elem) => ({id: elem.id, label: elem.name}))});
+      });
+
+    // update.devices = [{ id: 0, label: 'Device 1' }, { id: 1, label: 'Device 2' }, { id: 2, label: 'Device 3' }];
     this.setState(update);
   }
 
@@ -60,8 +70,8 @@ class App extends React.Component {
           </div>
 
           <footer>
-            
-          </footer>
+            {/* Footer */}
+        </footer>
         </div>
       </Router>
     );

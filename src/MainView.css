@@ -1,0 +1,29 @@
+.main-content {
+  width: 98vw;
+  height: 80vh;
+  padding: 1vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.mainView-content>.container-flex {
+  margin: 10px;
+  height: fit-content;
+}
+
+.station-list {
+  width: 98vw;
+  height: 80vh;
+  padding: 1vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.station-list>.container-flex {
+  margin: 10px;
+  height: fit-content;
+}
