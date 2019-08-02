@@ -33,7 +33,7 @@
     font-size: 20pt;
     display: flex;
     flex-flow: row;
-    width: 400px;
+    width: 500px;
 }
 
 .overview-item > * {

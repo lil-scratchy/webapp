@@ -60,8 +60,8 @@ class App extends React.Component {
           </div>
 
           <footer>
-            Footer
-        </footer>
+            
+          </footer>
         </div>
       </Router>
     );
