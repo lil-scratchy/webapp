@@ -13,8 +13,7 @@
 }
 
 .grade {
-    color: black;
-    padding: 10px;
+    font-size: 28pt;
 }
 
 .grade-bad {
@@ -22,7 +21,7 @@
 }
 
 .grade-ok {
-    color: var(--main-accent-four);
+    color: orange;
 }
 
 .grade-good {

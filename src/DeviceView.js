@@ -33,12 +33,11 @@ class DeviceView extends React.Component {
   constructor(props){
     super(props);
     setInterval(() => {
-      console.log("Loading Data");
-      axios.get(`${endpoint}/devices/${props.match.params.id}/data/latest`)
+      console.log("Loading Data for " + this.props.match.params.id);
+      axios.get(`${endpoint}/devices/${this.props.match.params.id}/data/latest`)
         .then(({data}) => {
           let newState = this.state;
           data.forEach(element => {
-            console.log(element);
             // TODO adapt to best practices;
             switch (element.name) {
               case "temp":

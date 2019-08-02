@@ -8,16 +8,16 @@ class OverviewItem extends React.Component {
 
     switch (this.props.grade) {
       case 1:
-        grade = <i className="icofont-thumbs-down grade-bad"></i>;
+        grade = <i className="icofont-sad grade-bad grade"></i>;
         break;
       case 2:
-        grade = <i className="icofont-thumbs-up grade-ok"></i>;
+        grade = <i className="icofont-slightly-smile grade-ok grade"></i>;
         break;
       case 3:
-        grade = <i className="icofont-thumbs-up grade-good"></i>;
+        grade = <i className="icofont-simple-smile grade-good grade"></i>;
         break;
       default:
-        grade = <i className="icofont-thumbs-up grade-good"></i>;
+        grade = <i className="icofont-simple-smile grade-good grade"></i>;
     }
 
     return (
@@ -32,23 +32,57 @@ class OverviewItem extends React.Component {
 
 class AirQualityOverview extends React.Component {
 
+  gradeParticalCount(value) {
+    if (value < 24) { //Perfekt
+      return 3
+    } else if (value >= 24 && value < 28) { //Ok
+      return 2
+    } else { // Bad
+      return 1
+    }
+  }
+
+  gradeTVOC(value) {
+    if (value <= 14) { //Perfekt
+      return 3
+    } else if (value > 14 && value < 50) { //Ok
+      return 2
+    } else { // Bad
+      return 1
+    }
+  }
+
+  gradeCO2(value) {
+    if (value <= 1000) { //Perfekt
+      return 3
+    } else if (value > 1000 && value < 1500) { //Ok
+      return 2
+    } else { // Bad
+      return 1
+    }
+  }
+
+  gradeOxygen(value) {
+    if (value <= 18 || value > 40) { //bad
+      return 1
+    } else if (value > 19 && value < 40) { //Perfect
+      return 3
+    } else { // ok
+      return 2
+    }
+  }
+
   render() {
 
-    /*
-    const devices = ['a', 'b', 'c', 'd'];
-
-    const deviceList = devices.map((value, index, array) => {
-      return (<li className="device-item"><span className="label">Device {value}</span><span className="grade"><i class="icofont-simple-smile"></i></span></li>);
-    });*/
     console.log(this.props);
     let { partical_count, co2, tvoc, o2 } = this.props.aq;
-    // TODO fix the grading
+
     return (
       <div className="container-flex">
-        <OverviewItem label="Particle Count" value={partical_count + ""} grade={1} />
-        <OverviewItem label="Organic Compunds" value={tvoc + " ppm"} grade={3} />
-        <OverviewItem label="Carbon Dioxide" value={co2 + " ppm"} grade={2} />
-        <OverviewItem label="Oxygen" value={o2 + " %"} grade={1} />
+        <OverviewItem label="Particle Count" value={partical_count + ""} grade={this.gradeParticalCount(partical_count)} />
+        <OverviewItem label="Organic Compunds" value={tvoc + " ppm"} grade={this.gradeTVOC(tvoc)} />
+        <OverviewItem label="Carbon Dioxide" value={co2 + " ppm"} grade={this.gradeCO2(co2)} />
+        <OverviewItem label="Oxygen" value={o2 + " %"} grade={this.gradeOxygen(o2)} />
       </div>
     );
   }
